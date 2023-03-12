@@ -1,0 +1,21 @@
+@import "../../styles/variables.scss";
+
+.cell-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  i {
+    font-size: 1rem;
+    color: $darkestGrey;
+
+    transition: $transitionOut;
+
+    &:hover {
+      cursor: pointer;
+      transition: $transitionIn;
+      color: rgb(234, 88, 11);
+    }
+  }
+}

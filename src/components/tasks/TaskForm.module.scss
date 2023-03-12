@@ -1,0 +1,70 @@
+@import "../../styles/variables.scss";
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: auto;
+  max-width: 400px;
+  width: 100%;
+  gap: 20px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      outline: none;
+      background-color: #f1f1f1;
+      margin-top: 5px;
+      border-radius: 5px;
+    }
+
+    textarea {
+      height: 120px;
+    }
+  }
+
+  .options-box {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    select {
+      option {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .button-box {
+    button {
+      text-transform: capitalize;
+      border: none;
+      outline: none;
+      background-color: rgb(234, 88, 11);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 8px 15px;
+      margin-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: $transitionOut;
+
+      &:hover {
+        transition: $transitionIn;
+        background-color: rgb(207, 64, 7);
+      }
+    }
+  }
+}
