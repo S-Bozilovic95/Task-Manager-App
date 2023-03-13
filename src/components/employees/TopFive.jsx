@@ -14,6 +14,15 @@ const TopFive = () => {
     { name: "", data: [] },
   ]);
 
+  function getMonthName(monthNumber) {
+    const date = new Date();
+    date.setMonth(monthNumber - 1);
+
+    return date.toLocaleString("en-US", {
+      month: "long",
+    });
+  }
+
   const findTopFive = useCallback(() => {
     const filteredTasks = taskList?.filter(
       (item) =>
@@ -58,7 +67,12 @@ const TopFive = () => {
 
   return (
     <div>
-      <ChartBar items={topFiveEmployees} />
+      <ChartBar
+        items={topFiveEmployees}
+        title={`Largest number of tasks completed in ${getMonthName(
+          pastMonth
+        )}`}
+      />
     </div>
   );
 };

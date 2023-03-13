@@ -1,27 +1,24 @@
-const ChartBar = ({ items }) => {
+import classes from "./ChartBar.module.scss";
+
+const ChartBar = ({ items, title }) => {
   const maxValue = items[0].data;
 
   return (
-    <div
-      style={{
-        height: 200,
-        padding: 10,
-        display: "flex",
-        alignItems: "flex-end",
-      }}
-    >
+    <div className={classes.chart}>
+      <h4>{title}</h4>
       {items?.map((item) => (
-        <div
-          style={{
-            width: 20,
-            borderRadius: 5,
-            margin: 5,
-            backgroundColor: "green",
-            height: (item.data / maxValue) * 100 + "%",
-          }}
-        >
-          {item.name}
-          {item.data}
+        <div className={classes["chart-box"]}>
+          <div className={classes["text-box"]}>
+            <p>{item.name}</p>
+          </div>
+          <div
+            className={classes.bar}
+            style={{
+              width: (item.data / maxValue) * 100 + "%",
+            }}
+          >
+            <p> {item.data}</p>
+          </div>
         </div>
       ))}
     </div>

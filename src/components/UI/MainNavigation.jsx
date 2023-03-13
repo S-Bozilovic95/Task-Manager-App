@@ -27,13 +27,13 @@ const MainNavigation = () => {
 
         <div className={classes["link-box"]}>
           <NavLink to="/" onClick={dropHandler}>
-            Home
-          </NavLink>
-          <NavLink to="/employees" onClick={dropHandler}>
             Employees
           </NavLink>
           <NavLink to="/tasks" onClick={dropHandler}>
             Tasks
+          </NavLink>
+          <NavLink to="/projects" onClick={dropHandler}>
+            Projects
           </NavLink>
         </div>
       </div>

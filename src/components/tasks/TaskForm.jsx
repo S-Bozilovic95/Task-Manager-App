@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { updateProject } from "../../api/projects/projects";
 import { updateTask, addNewTask, getSingleTask } from "../../api/tasks/tasks";
-import { initialEmployeeList } from "../../store/employeeSlice";
+import {
+  getEmployeeData,
+  initialEmployeeList,
+} from "../../store/employeeSlice";
+import { getProjectData, initialProjectList } from "../../store/projectSlice";
 import {
   currentTaskId,
   getTaskData,
@@ -13,6 +18,7 @@ import classes from "./TaskForm.module.scss";
 const TaskForm = ({ showDialogHandler }) => {
   const id = useSelector(currentTaskId);
   const employeeList = useSelector(initialEmployeeList);
+  const projectList = useSelector(initialProjectList);
   const mode = id ? "update" : "add";
   const dispatch = useDispatch();
   const [taskItem, setTaskItem] = useState({
@@ -40,6 +46,7 @@ const TaskForm = ({ showDialogHandler }) => {
       } else {
         const response = await addNewTask(itemData);
       }
+
       dispatch(getTaskData());
       handleCancel();
     } catch (error) {
@@ -72,6 +79,11 @@ const TaskForm = ({ showDialogHandler }) => {
       getTask();
     }
   }, [id]);
+
+  useEffect(() => {
+    dispatch(getEmployeeData());
+    dispatch(getProjectData());
+  }, [dispatch]);
 
   return (
     <PopUp onClose={showDialogHandler.bind(this, false)}>
@@ -119,7 +131,11 @@ const TaskForm = ({ showDialogHandler }) => {
             >
               <option value=""></option>
               {employeeList?.map((item) => {
-                return <option key={item.id}>{item.fullName}</option>;
+                return (
+                  <option key={item.id} value={item.fullName}>
+                    {item.fullName}
+                  </option>
+                );
               })}
             </select>
           </label>
@@ -132,8 +148,13 @@ const TaskForm = ({ showDialogHandler }) => {
               onChange={changeHandler}
             >
               <option value=""></option>
-              <option value="Project 1">Project 1</option>
-              <option value="Project 2">Project 2</option>
+              {projectList?.map((item) => {
+                return (
+                  <option key={item.id} value={item.title}>
+                    {item.title}
+                  </option>
+                );
+              })}
             </select>
           </label>
         </div>

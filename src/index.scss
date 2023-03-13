@@ -11,15 +11,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 100px 50px 0px;
+  padding: 100px 50px 30px;
   box-sizing: border-box;
   background-color: #f5f3f4;
   scroll-behavior: smooth;
+  text-align: center;
 
   @media (max-width: 1024px) {
-    padding: 80px 10px 0px;
+    padding: 80px 10px 30px;
   }
-  text-align: center;
 }
 
 code {
@@ -49,4 +49,12 @@ ul {
   list-style-type: none;
   margin: 0px;
   padding: 0;
+}
+
+.chart-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  margin: 30px 0px;
 }

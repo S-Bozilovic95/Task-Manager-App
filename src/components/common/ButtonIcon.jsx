@@ -8,7 +8,7 @@ const ButtonIcon = ({ type, showDialogHandler }) => {
       onClick={showDialogHandler.bind(this, true)}
       className={classes.button}
     >
-      {type === "task" && (
+      {(type === "task" || type === "project") && (
         <i>
           <MdLibraryAdd />
         </i>

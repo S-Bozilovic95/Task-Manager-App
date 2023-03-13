@@ -1,0 +1,40 @@
+.chart {
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #ebe1e1;
+
+  h4 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+
+  .chart-box {
+    margin-bottom: 25px;
+
+    .bar {
+      height: 25px;
+      border-radius: 2px;
+      background-color: rgb(234, 88, 11);
+      position: relative;
+
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        color: white;
+      }
+    }
+
+    .text-box {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      p {
+        font-size: 18px;
+        font-weight: 500;
+      }
+    }
+  }
+}
